@@ -46,3 +46,7 @@ npx shadcn@latest init --template next
 
 // for toast notifications
 npm i react-hot-toast
+
+## Add Shadcn components
+
+npx shadcn@latest add button

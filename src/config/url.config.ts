@@ -14,8 +14,8 @@ export const PUBLIC_URL = {
 export const DASHBOARD_URL = {
     root: (url = '') => `/dashboard${url ? url : ''}`,
 
-    home: () => PUBLIC_URL.root('/'),
-    favorites: () => PUBLIC_URL.root('/favorites'),
+    home: () => DASHBOARD_URL.root(),
+    favorites: () => DASHBOARD_URL.root('/favorites'),
 }
 
 export const STORE_URL = {
