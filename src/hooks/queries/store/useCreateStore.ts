@@ -12,7 +12,7 @@ export function useCreateStore() {
     const queryClient = useQueryClient();
 
     const { mutate: createStore, isPending: isLoadingCreate } = useMutation({
-        mutationKey: ['create-store'],
+        mutationKey: ['create store'],
         mutationFn: (data: IStoreCreate) => storeService.create(data),
         onSuccess: (store) => {
             queryClient.invalidateQueries({ queryKey: ['profile'] });

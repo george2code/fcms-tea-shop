@@ -60,3 +60,6 @@ npm i react-countup
 npx shadcn@latest add skeleton --yes
 
 npx shadcn@latest add chart
+
+npx shadcn@latest add textarea
+npx shadcn@latest add alert-dialog
