@@ -6,7 +6,7 @@ import { useMemo } from "react";
 export const useGetStatistics = () => {
     const params = useParams<{ storeId: string }>();
 
-    const { data: main } = useQuery({
+    const { data: main, isLoading: isLoadingMain } = useQuery({
         queryKey: ['get main statistics'],
         queryFn: () => statisticsService.getMain(params.storeId),
     });
@@ -19,5 +19,6 @@ export const useGetStatistics = () => {
     return useMemo(() => ({
         main,
         middle,
-    }), [main, middle]);
+        isLoadingMain,
+    }), [main, middle, isLoadingMain]);
 }

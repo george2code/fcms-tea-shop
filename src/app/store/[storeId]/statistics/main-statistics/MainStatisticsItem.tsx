@@ -1,6 +1,7 @@
 import { IMainStatistics } from "@/shared/types/statistics.interface";
 import { getIcon } from "./statistics.util";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 
 import styles from './MainStatistics.module.scss';
 import CountUp from "react-countup";
@@ -27,4 +28,18 @@ export function MainStatisticsItem({ item }: IMainStatisticsItemProps) {
             </h2>
         </CardContent>
     </Card>;
+}
+
+export function MainStatisticsItemSkeleton() {
+    return (
+        <Card className={styles.card}>
+            <CardHeader className={styles.header}>
+                <Skeleton className="h-4 w-24" />
+                <Skeleton className="size-5" />
+            </CardHeader>
+            <CardContent className={styles.content}>
+                <Skeleton className="h-8 w-28" />
+            </CardContent>
+        </Card>
+    );
 }

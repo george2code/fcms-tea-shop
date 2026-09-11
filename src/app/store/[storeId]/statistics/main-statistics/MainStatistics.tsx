@@ -1,12 +1,18 @@
 import { useGetStatistics } from "@/hooks/queries/statistics/useGetStatistics";
 import styles from './MainStatistics.module.scss';
-import { MainStatisticsItem } from "./MainStatisticsItem";
+import { MainStatisticsItem, MainStatisticsItemSkeleton } from "./MainStatisticsItem";
+
+const SKELETON_COUNT = 4;
 
 export function MainStatistics() {
-    const { main } = useGetStatistics();
+    const { main, isLoadingMain } = useGetStatistics();
 
     return <div className={styles.main}>
-        {main?.length ? (
+        {isLoadingMain ? (
+            Array.from({ length: SKELETON_COUNT }).map((_, index) => (
+                <MainStatisticsItemSkeleton key={index} />
+            ))
+        ) : main?.length ? (
             main.map((item) => (
                 <MainStatisticsItem key={item.id} item={item} />
             ))

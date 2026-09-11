@@ -5,6 +5,7 @@ import { Loader } from "@/components/ui/Loader";
 import styles from './Store.module.scss';
 import { Heading } from "@/components/ui/Heading";
 import { MainStatistics } from "./statistics/main-statistics/MainStatistics";
+import { MiddleStatistics } from "./statistics/middle-statistics/MiddleStatistics";
 
 export function Store() {
     const { store, isLoading } = useGetStore();
@@ -18,7 +19,8 @@ export function Store() {
         <Heading title={store?.title || ''} description={store?.description || ''} />
 
     <MainStatistics />
-    
+
+    <MiddleStatistics />
     
     </div>;
 }
