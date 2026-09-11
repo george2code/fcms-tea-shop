@@ -50,3 +50,4 @@ npm i react-hot-toast
 ## Add Shadcn components
 
 npx shadcn@latest add button
+npx shadcn@latest add sheet

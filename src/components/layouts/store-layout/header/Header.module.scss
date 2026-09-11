@@ -1,0 +1,21 @@
+@reference "../../../../app/globals.css";
+
+.header {
+    @apply p-6 gap-x-4 h-full flex items-center bg-white border-b;
+
+    > .header_menu {
+        @apply flex items-center gap-x-4 ml-auto;
+
+        a {
+            @apply flex items-center gap-x-3;
+        }
+
+        .initial {
+            @apply flex size-[42px] items-center justify-center rounded-full bg-primary text-lg font-medium text-primary-foreground;
+        }
+
+        img {
+            @apply rounded-full;
+        }
+    }
+}

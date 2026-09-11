@@ -1,0 +1,5 @@
+@reference "../../../../app/globals.css";
+
+.sidebar {
+    @apply flex flex-col bg-neutral-50 border-r overflow-y-auto pt-4 px-5 my-1 h-full;
+}
