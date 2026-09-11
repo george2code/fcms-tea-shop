@@ -54,3 +54,5 @@ npx shadcn@latest add sheet
 npx shadcn@latest add dialog
 npx shadcn@latest add popover
 npx shadcn@latest add command
+
+npm i react-countup
