@@ -1,11 +1,11 @@
-import { axiosClassic, axiosWithAuth } from "@/api/api.interceptors";
+import { axiosWithAuth } from "@/api/api.interceptors";
 import { API_URL } from "@/config/api.config";
 import { IStore, IStoreCreate, IStoreUpdate } from "@/shared/types/store.interface";
 
 class StoreService {
 
     async getById(id: string) {
-        const { data } = await axiosClassic<IStore>({
+        const { data } = await axiosWithAuth<IStore>({
             url: API_URL.stores(`/by-id/${id}`),
             method: 'GET',
         })
