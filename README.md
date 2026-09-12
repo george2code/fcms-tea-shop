@@ -63,3 +63,10 @@ npx shadcn@latest add chart
 
 npx shadcn@latest add textarea
 npx shadcn@latest add alert-dialog
+
+npx shadcn@latest add table
+npx shadcn@latest add select
+
+npm i @tanstack/react-table
+
+npx shadcn@latest add dropdown-menu

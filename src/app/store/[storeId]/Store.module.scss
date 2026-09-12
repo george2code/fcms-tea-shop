@@ -10,9 +10,13 @@
             @apply flex items-center gap-x-4;
 
             svg {
-                @apply size-4;
+                @apply size-4 mr-2;
             }
         }
+    }
+
+    > .table {
+        @apply mt-3;
     }
 
     form {
