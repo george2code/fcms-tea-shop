@@ -15,11 +15,11 @@ class CategoryService {
 
     async getByStoreId(storeId: string) {
         const { data } = await axiosWithAuth<ICategory[]>({
-            url: API_URL.categories(`/by-store/${storeId}`),
+            url: API_URL.categories(`/by-storeId/${storeId}`),
             method: 'GET',
         })
 
-        return data;
+        return Array.isArray(data) ? data.filter(Boolean) : [];
     }
 
     async getById(id: string) {

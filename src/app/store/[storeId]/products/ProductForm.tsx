@@ -14,6 +14,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { ImageUpload } from "@/components/ui/form-elements/image-upload/ImageUpload";
 
 interface ProductFormProps {
     product?: IProduct;
@@ -68,6 +69,26 @@ export function ProductForm({ product, categories, colors }: ProductFormProps) {
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className={styles.form}>
                     {/* Images upload */}
+                    <FormField 
+                        control={form.control} 
+                        name="images" 
+                        rules={{
+                            required: 'Load at least one image',
+                        }}
+                        render={({ field }) => (
+                            <FormItem className="mt-4">
+                                <FormLabel>Images</FormLabel>
+                                <FormControl>
+                                    <ImageUpload 
+                                        isDisabled={isLoadingCreate || isLoadingUpdate} 
+                                        onChange={field.onChange} 
+                                        value={field.value} 
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
 
                     <FormField 
                         control={form.control} 
@@ -126,16 +147,19 @@ export function ProductForm({ product, categories, colors }: ProductFormProps) {
                                 <FormLabel>Category</FormLabel>
                                 <Select 
                                     disabled={isLoadingCreate || isLoadingUpdate} 
-                                    onValueChange={field.onChange} 
-                                    defaultValue={field.value}
-                                    value={field.value}
+                                    onValueChange={(value) => field.onChange(value ?? "")} 
+                                    value={field.value || null}
+                                    items={categories.map((category) => ({
+                                        value: category.id,
+                                        label: category.title,
+                                    }))}
                                 >
                                     <FormControl>
-                                        <SelectTrigger>
+                                        <SelectTrigger className="w-full">
                                             <SelectValue placeholder="Product category" />
                                         </SelectTrigger>
                                     </FormControl>
-                                        <SelectContent>
+                                        <SelectContent alignItemWithTrigger={false}>
                                             <SelectGroup>
                                                 {categories.map((category) => (
                                                     <SelectItem key={category.id} value={category.id}>
@@ -161,16 +185,19 @@ export function ProductForm({ product, categories, colors }: ProductFormProps) {
                                 <FormLabel>Color</FormLabel>
                                 <Select 
                                     disabled={isLoadingCreate || isLoadingUpdate} 
-                                    onValueChange={field.onChange} 
-                                    defaultValue={field.value}
-                                    value={field.value}
+                                    onValueChange={(value) => field.onChange(value ?? "")} 
+                                    value={field.value || null}
+                                    items={colors.map((color) => ({
+                                        value: color.id,
+                                        label: color.name,
+                                    }))}
                                 >
                                     <FormControl>
-                                        <SelectTrigger>
+                                        <SelectTrigger className="w-full">
                                             <SelectValue placeholder="Product color" />
                                         </SelectTrigger>
                                     </FormControl>
-                                        <SelectContent>
+                                        <SelectContent alignItemWithTrigger={false}>
                                             <SelectGroup>
                                                 {colors.map((color) => (
                                                     <SelectItem key={color.id} value={color.id}>

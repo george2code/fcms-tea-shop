@@ -9,6 +9,7 @@ export function useGetCategories() {
     const { data: categories, isLoading: isLoadingCategories } = useQuery({
         queryKey: ["get categories for store dashboard", params.storeId],
         queryFn: () => categoryService.getByStoreId(params.storeId),
+        enabled: !!params.storeId,
     });
 
     return useMemo(() => ({

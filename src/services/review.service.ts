@@ -7,7 +7,7 @@ class ReviewService {
 
     async getByStoreId(storeId: string) {
         const { data } = await axiosWithAuth<IReview[]>({
-            url: API_URL.reviews(`/by-store/${storeId}`),
+            url: API_URL.reviews(`/by-storeId/${storeId}`),
             method: 'GET',
         })
 

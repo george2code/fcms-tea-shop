@@ -6,11 +6,11 @@ class ColorService {
 
     async getByStoreId(storeId: string) {
         const { data } = await axiosWithAuth<IColor[]>({
-            url: API_URL.colors(`/by-store/${storeId}`),
+            url: API_URL.colors(`/by-storeId/${storeId}`),
             method: 'GET',
         })
 
-        return data;
+        return Array.isArray(data) ? data.filter(Boolean) : [];
     }
 
     async getById(id: string) {

@@ -9,6 +9,7 @@ export function useGetColors() {
     const { data: colors, isLoading: isLoadingColors } = useQuery({
         queryKey: ["get colors for store dashboard", params.storeId],
         queryFn: () => colorService.getByStoreId(params.storeId),
+        enabled: !!params.storeId,
     });
 
     return useMemo(() => ({

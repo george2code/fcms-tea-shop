@@ -30,7 +30,7 @@ function toProductColumns(products: IProduct[] | undefined, storeId: string): IP
             price: formatPrice(product.price ?? 0),
             category: product.category?.title ?? '',
             color: product.color?.value ?? '',
-            storeId: product.store?.id ?? storeId,
+            storeId: storeId,
         }]
     })
 }
