@@ -70,3 +70,5 @@ npx shadcn@latest add select
 npm i @tanstack/react-table
 
 npx shadcn@latest add dropdown-menu
+
+npm i react-simple-star-rating

@@ -1,0 +1,13 @@
+@reference "../../../app/globals.css";
+
+.wrapper {
+    @apply flex flex-col h-full;
+
+    & > .layout {
+        @apply flex-1;
+
+        & > main {
+            @apply mx-12 lg:mx-14;
+        }
+    }
+}
