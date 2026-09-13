@@ -72,3 +72,6 @@ npm i @tanstack/react-table
 npx shadcn@latest add dropdown-menu
 
 npm i react-simple-star-rating
+
+# for payment purposes
+npm i @reduxjs/toolkit react-redux
